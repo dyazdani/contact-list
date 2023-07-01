@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import {useEffect} from "react";
 //TODO: How to store number of contacts in a way for this component to read it? UseState? 
 //TODO: fix CORS policy error in fetch call
 
