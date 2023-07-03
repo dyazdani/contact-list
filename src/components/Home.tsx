@@ -8,18 +8,15 @@ import {useEffect} from "react";
 const Home = () => {
     const numberOfContacts = 0;
 
-    const fetchCurrentNumberOfContacts = async () => {
-        const response = await fetch('https://my-json-server.typicode.com/dyazdani/contact-list', {
-            method: "GET",
-
-        });
-        const data = response.json();
+    const fetchJsonData = async () => {
+        const response = await fetch('http://localhost:3000/posts');
+        const data = await response.json();
         console.log(data)
         //TODO: figure out what part of data will yield number of contacts
     }
 
     useEffect(() => {
-        fetchCurrentNumberOfContacts();
+        fetchJsonData();
     }, [])
 
     return (
