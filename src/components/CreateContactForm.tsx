@@ -9,6 +9,8 @@ const CreateContactForm = () => {
                 <option value="">--Please choose an option--</option>
                 <option value="female">Female</option>
                 <option value="male">Male</option>
+                <option value="non-binary">Non-Binary</option>
+                <option value="other">Other</option>
                 <option value="prefer-to-not-say">Prefer to not say</option>
             </select>
             <input name="birthday" type="date" />

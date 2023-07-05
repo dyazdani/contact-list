@@ -37,6 +37,8 @@ const UpdateContactForm = () => {
                     <option value="">--Please choose an option--</option>
                     <option value="female" selected={isFemaleSelected}>Female</option>
                     <option value="male" selected={isMaleSelected}>Male</option>
+                    <option value="non-binary" selected={isNonBinarySelected}>Non-Binary</option>
+                    <option value="other" selected={isOtherSelected}>Other</option>
                     <option 
                         value="prefer-to-not-say" 
                         selected={isPreferToNotSaySelected}>Prefer to not say</option>
