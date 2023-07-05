@@ -22,6 +22,9 @@ const UpdateContactForm = () => {
     const birthdayYear = new Date(birthday).getFullYear();
     const birthdayMonth = new Date(birthday).getMonth();
     const birthdayDate = new Date(birthday).getDate();
+    //TODO: assuming responseData.phone.number has been fetched as 10 digit number
+    const rawPhoneString = responseData.phone.number.toString();
+    let phoneNumber = `${rawPhoneString.slice(0,3)}-${rawPhoneString.slice(3, 6)}-${rawPhoneString.slice(6)}`
 
     return (
         <>
