@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link} from "react-router-dom";
 /*
 TYPES:
     name: string
@@ -19,7 +19,7 @@ TYPES:
 const ContactDetails = () => {
     const id = useParams();
 
-    
+
     return (
         <>
             <h1>{name}</h1>
@@ -35,6 +35,7 @@ const ContactDetails = () => {
                 {zip} <br />
                 {country}
             </address> 
+            <Link to="/contacts/:id/update">Update Contact</Link>
         </>
     )
 
