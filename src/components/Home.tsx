@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -18,7 +19,7 @@ const Home = () => {
         <div>
             <h1>Welcome to UrContacts!</h1>
             <h2>Your list has {numberOfContacts} contacts</h2>
-            <a>Go to UrContacts List</a>
+            <Link to="/contact-list">Go to UrContacts List</Link>
         </div>
     )
 
