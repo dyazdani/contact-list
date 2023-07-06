@@ -13,12 +13,12 @@ const CreateContactForm = () => {
                 <option value="other">Other</option>
                 <option value="prefer-to-not-say">Prefer to not say</option>
             </select>
-            <input name="birthday" type="date" />
+            <input name="birthday" type="date" placeholder="Email"/>
             <input type="email" />
             <input type="tel" 
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
                 placeholder="ex: 444-444-4444" />
-            <input type="number" placeholder="country code"/>
+            <input type="number" placeholder="Country Code"/>
             <div id="address">
                 <p>Address:</p>
                 <input type="text" placeholder="Street"/>
