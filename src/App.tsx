@@ -12,10 +12,10 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/contact-list" element={<ContactList />} />
-        <Route path="/contact-details" element={<ContactDetails />} />
-        <Route path="/create-contact" element={<CreateContactForm />} />
-        <Route path="/update-contact" element={<UpdateContactForm />} />
+        <Route path="/contacts" element={<ContactList />} />
+        <Route path="/contacts/:id" element={<ContactDetails />} />
+        <Route path="/create" element={<CreateContactForm />} />
+        <Route path="/contacts/:id/update" element={<UpdateContactForm />} />
         <Route path="*" element={<p>Page Not Found</p>} />
       </Routes>
     </>
