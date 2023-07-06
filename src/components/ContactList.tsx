@@ -23,7 +23,7 @@ import ContactListItem from "./ContactListItem";
 // }
 
 const ContactList = () => {
-    const [contacts, setContacts] = useState(null);
+    const [contacts, setContacts] = useState([]);
     
     const fetchContacts = async () => {
         const response = await fetch('http://localhost:3000/contacts');
