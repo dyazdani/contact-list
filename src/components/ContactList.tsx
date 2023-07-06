@@ -1,8 +1,13 @@
+import { Link } from "react-router-dom";
+
 const ContactList = () => {
 
     return (
-        <ul>
-        </ul>
+        <>
+            <ul>Test</ul>
+            <Link to="/create">Create Contact</Link>
+        </>
+        
     )
 
 
