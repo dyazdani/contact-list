@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 /*
 TYPES:
     name: string
@@ -16,7 +17,9 @@ TYPES:
 */
 
 const ContactDetails = () => {
+    const id = useParams();
 
+    
     return (
         <>
             <h1>{name}</h1>
