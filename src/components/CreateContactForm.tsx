@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, FormEvent } from "react";
 
 const parsePhoneNumber = (phoneNumberString: string) => {
     return +(phoneNumberString.split('').filter(el => el !== '-').join(''));
@@ -19,27 +19,29 @@ const CreateContactForm = () => {
     const [zip, setZip] = useState("");
     const [country, setCountry] = useState("");
 
-    async function postNewContact() {
+
+      const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
         const data = {
-            "contactId": (Math.random() * 170000000000000000).toString(),
-            "name": `${firstName} ${lastName}`,
-            "gender": gender,
-            "birthday": Date.parse(birthday),
-            "email": email,
-            "phone": {
-              "number": parsePhoneNumber(phoneNumber),
-              "country_code": parsePhoneNumber(countryCode)
+            name: `${firstName} ${lastName}`,
+            gender,
+            birthday: birthday ? new Date(birthday).getTime() / 1000 : "",
+            email,
+            phone: {
+              number: parsePhoneNumber(phoneNumber),
+              country_code: parsePhoneNumber(countryCode)
             },
-            "address": {
-              "street": street,
-              "unit": unit,
-              "city": city,
-              "state": province,
-              "zip": zip,
-              "country": country
+            address: {
+              street,
+              unit,
+              city,
+              province,
+              zip,
+              country
             }
         };
         console.log(data)
+        console.log(JSON.stringify(data))
         try {
           const response = await fetch("http://localhost:3000/contacts", { //TODO: fix error that is making this POST not work
             method: "POST",
@@ -48,21 +50,12 @@ const CreateContactForm = () => {
             },
             body: JSON.stringify(data),
           });
-      
+          
           const result = await response.json();
           console.log("Success:", result);
         } catch (error) {
           console.error("Error:", error);
         }
-      }
-
-      useEffect(() => {
-        postNewContact();
-      }, [])
-
-      const handleSubmit = e => {
-        e.preventDefault();
-        postNewContact();
       }
 
     return (
