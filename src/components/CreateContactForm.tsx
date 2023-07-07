@@ -20,8 +20,26 @@ const CreateContactForm = () => {
     const [zip, setZip] = useState(`85454`);
     const [country, setCountry] = useState(`USA`);
 
-    async function postJSON(data) {
-        
+    async function postJSON() {
+        const data = {
+            "contactId": contactId,
+            "name": `${firstName} ${lastName}`,
+            "gender": gender,
+            "birthday": birthday,
+            "email": email,
+            "phone": {
+              "number": phoneNumber,
+              "country_code": countryCode
+            },
+            "address": {
+              "street": street,
+              "unit": unit,
+              "city": city,
+              "state": province,
+              "zip": zip,
+              "country": country
+            }
+          }
         try {
           const response = await fetch("http://localhost:3000/contacts", {
             method: "POST",
@@ -38,28 +56,8 @@ const CreateContactForm = () => {
         }
       }
       
-    const data = {
-        "contactId": contactId,
-        "name": `${firstName} ${lastName}`,
-        "gender": gender,
-        "birthday": birthday,
-        "email": email,
-        "phone": {
-          "number": phoneNumber,
-          "country_code": countryCode
-        },
-        "address": {
-          "street": street,
-          "unit": unit,
-          "city": city,
-          "state": province,
-          "zip": zip,
-          "country": country
-        }
-      }
-      
       useEffect(() => {
-        postJSON(data)
+        postJSON()
       }, []);
 
     return (
