@@ -18,7 +18,8 @@ TYPES:
 
 const UpdateContactForm = () => {
     //TODO: use variables to store boolean value for selection option chosen in db
-
+    //TODO: use a get request to get data and then populate the form fields with those data values.
+    //TODO: PUT request to update the existing data with data in the request
     const birthdayYear = new Date(birthday).getFullYear();
     const birthdayMonth = new Date(birthday).getMonth();
     const birthdayDate = new Date(birthday).getDate();
