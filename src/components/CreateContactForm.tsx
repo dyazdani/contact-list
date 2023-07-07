@@ -5,7 +5,6 @@ const parsePhoneNumber = (phoneNumberString: string) => {
 }
 
 const CreateContactForm = () => {
-    const [contactId, setContactId] = useState((Math.random() * 170000000000000000).toString())
     const [firstName, setFirstName] = useState("Steve");
     const [lastName, setLastName] = useState("Stevenson");
     const [gender, setGender] = useState("Male");
@@ -22,7 +21,7 @@ const CreateContactForm = () => {
 
     async function postJSON() {
         const data = {
-            "contactId": contactId,
+            "contactId": (Math.random() * 170000000000000000).toString(),
             "name": `${firstName} ${lastName}`,
             "gender": gender,
             "birthday": birthday,
