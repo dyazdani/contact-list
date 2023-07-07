@@ -19,7 +19,7 @@ const CreateContactForm = () => {
     const [zip, setZip] = useState(`85454`);
     const [country, setCountry] = useState(`USA`);
 
-    async function postJSON() {
+    async function handleSubmit() {
         const data = {
             "contactId": (Math.random() * 170000000000000000).toString(),
             "name": `${firstName} ${lastName}`,
@@ -54,13 +54,9 @@ const CreateContactForm = () => {
           console.error("Error:", error);
         }
       }
-      
-      useEffect(() => {
-        postJSON()
-      }, []);
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <input 
                 placeholder="First Name" 
                 type="text" 
