@@ -19,7 +19,7 @@ const CreateContactForm = () => {
     const [zip, setZip] = useState("");
     const [country, setCountry] = useState("");
 
-    async function handleSubmit() {
+    async function postNewContact() {
         const data = {
             "contactId": (Math.random() * 170000000000000000).toString(),
             "name": `${firstName} ${lastName}`,
@@ -38,9 +38,10 @@ const CreateContactForm = () => {
               "zip": zip,
               "country": country
             }
-          }
+        };
+        console.log(data)
         try {
-          const response = await fetch("http://localhost:3000/contacts", {
+          const response = await fetch("http://localhost:3000/contacts", { //TODO: fix error that is making this POST not work
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -53,6 +54,15 @@ const CreateContactForm = () => {
         } catch (error) {
           console.error("Error:", error);
         }
+      }
+
+      useEffect(() => {
+        postNewContact();
+      }, [])
+
+      const handleSubmit = e => {
+        e.preventDefault();
+        postNewContact();
       }
 
     return (
@@ -133,7 +143,7 @@ const CreateContactForm = () => {
                     value={country} 
                     onChange={(e) => setCountry(e.target.value)}/>
             </div>
-            <button type="button">Submit</button>
+            <button>Submit</button>
         </form>
     )
 
