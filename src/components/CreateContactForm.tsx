@@ -8,10 +8,10 @@ const CreateContactForm = () => {
     const [firstName, setFirstName] = useState("Steve");
     const [lastName, setLastName] = useState("Stevenson");
     const [gender, setGender] = useState("Male");
-    const [birthday, setBirthday] = useState(233242385);
+    const [birthday, setBirthday] = useState("2000-04-04");
     const [email, setEmail] = useState("steve.stevenson@gmail.com");
-    const [phoneNumber, setPhoneNumber] = useState(4958394432);
-    const [countryCode, setCountryCode] = useState(1);
+    const [phoneNumber, setPhoneNumber] = useState("756-987-4738");
+    const [countryCode, setCountryCode] = useState("1");
     const [street, setStreet] = useState(`666 Devil's Lane`);
     const [unit, setUnit] = useState("Apt 123");
     const [city, setCity] = useState(`Carson City`);
@@ -24,11 +24,11 @@ const CreateContactForm = () => {
             "contactId": (Math.random() * 170000000000000000).toString(),
             "name": `${firstName} ${lastName}`,
             "gender": gender,
-            "birthday": birthday,
+            "birthday": Date.parse(birthday),
             "email": email,
             "phone": {
-              "number": phoneNumber,
-              "country_code": countryCode
+              "number": parsePhoneNumber(phoneNumber),
+              "country_code": parsePhoneNumber(countryCode)
             },
             "address": {
               "street": street,
@@ -85,7 +85,7 @@ const CreateContactForm = () => {
                 name="birthday" 
                 type="date" 
                 value={birthday} 
-                onChange={(e) => setBirthday(Date.parse(e.target.value))}/>
+                onChange={(e) => setBirthday(e.target.value)}/>
             <input 
                 type="email" 
                 value={email} 
@@ -94,12 +94,12 @@ const CreateContactForm = () => {
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
                 placeholder="ex: 444-444-4444" 
                 value={phoneNumber} 
-                onChange={(e) => setPhoneNumber(parsePhoneNumber(e.target.value))}/>
+                onChange={(e) => setPhoneNumber(e.target.value)}/>
             <input 
                 type="number" 
                 placeholder="country code"
                 value={countryCode} 
-                onChange={(e) => setCountryCode(parseInt(e.target.value))}/>
+                onChange={(e) => setCountryCode(e.target.value)}/>
             <div id="address">
                 <p>Address:</p>
                 <input 
