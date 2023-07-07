@@ -5,19 +5,19 @@ const parsePhoneNumber = (phoneNumberString: string) => {
 }
 
 const CreateContactForm = () => {
-    const [firstName, setFirstName] = useState("Steve");
-    const [lastName, setLastName] = useState("Stevenson");
-    const [gender, setGender] = useState("Male");
-    const [birthday, setBirthday] = useState("2000-04-04");
-    const [email, setEmail] = useState("steve.stevenson@gmail.com");
-    const [phoneNumber, setPhoneNumber] = useState("756-987-4738");
-    const [countryCode, setCountryCode] = useState("1");
-    const [street, setStreet] = useState(`666 Devil's Lane`);
-    const [unit, setUnit] = useState("Apt 123");
-    const [city, setCity] = useState(`Carson City`);
-    const [province, setProvince] = useState(`NV`);
-    const [zip, setZip] = useState(`85454`);
-    const [country, setCountry] = useState(`USA`);
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [gender, setGender] = useState("");
+    const [birthday, setBirthday] = useState("");
+    const [email, setEmail] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [countryCode, setCountryCode] = useState("");
+    const [street, setStreet] = useState("");
+    const [unit, setUnit] = useState("");
+    const [city, setCity] = useState("");
+    const [province, setProvince] = useState("");
+    const [zip, setZip] = useState("");
+    const [country, setCountry] = useState("");
 
     async function handleSubmit() {
         const data = {
