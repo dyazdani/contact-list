@@ -11,7 +11,7 @@ const ContactListItem = ({name, id}: ContactListItemProps) => {
 
     return (
         <li key={id}>
-            <Link to="/contacts/:id">{name}</Link>
+            <Link to={`/contacts/${id}`}>{name}</Link>
         </li>
     )
 
