@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import ContactListItem from "./ContactListItem";
 
-// interface contactListItemType {
+//TODO: Move this interface somewhere
+// interface ContactListItemType {
 //     id: string | null
 //     name: string | null
 //     gender: string | null
@@ -37,12 +38,12 @@ const ContactList = () => {
 
     
     //TODO: fix TS errors
-    return contacts ? (
+    return contacts.length > 0 ? (
         <>
             <ul>
                 {contacts.map(contact => {
                     return (
-                        <ContactListItem name={contact.name} id={contact.id}></ContactListItem>
+                        <ContactListItem name={contact.name} id={contact.id} />
                     );
                 })}
             </ul>
@@ -51,7 +52,7 @@ const ContactList = () => {
         
     ) : (
             <>
-            <p>Unable to load UrContacts. Please try again.</p>
+            <p>UrContact list is empty</p>
             <Link to="/create">Create New Contact</Link>
             </>
             
