@@ -2,26 +2,27 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, ReactNode } from "react";
 import ContactListItem from "./ContactListItem";
 
-//TODO: Move this interface somewhere
-// interface ContactListItemType {
-//     id: string | null
-//     name: string | null
-//     gender: string | null
-//     birthday: number | null
-//     email: string | null
-//     phone: {
-//         number: number | null
-//         country_code: number | null
-//     }
-//     address: {
-//         street: string | null
-//         unit: number | null
-//         city: string | null
-//         state: string | null
-//         zip: string | null
-//         country: string | null
-//     }
-// }
+type ContactListItemType = {
+    id: string
+    name: string
+    gender: string
+    birthday: number
+    email: string
+    phone: {
+        number: number
+        country_code: number
+    }
+    address: {
+        street: string
+        unit: number
+        city: string
+        state: string
+        zip: string
+        country: string
+    }
+}
+
+
 
 const ContactList = () => {
     const [contacts, setContacts] = useState([]);
@@ -43,7 +44,7 @@ const ContactList = () => {
             <ul>
                 {contacts.map(contact => {
                     return (
-                        <ContactListItem name={contact.name} id={contact.id} />
+                        <ContactListItem name={(contact as ContactListItemType).name} id={(contact as ContactListItemType).id} />
                     );
                 })}
             </ul>
