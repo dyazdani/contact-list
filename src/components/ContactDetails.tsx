@@ -1,4 +1,5 @@
 import { useParams, Link} from "react-router-dom";
+import DeleteContactButton from "./DeleteContactButton";
 /*
 TYPES:
     name: string
@@ -17,12 +18,13 @@ TYPES:
 */
 
 const ContactDetails = () => {
-    const id = useParams();
+    // const id = useParams();
+    const id = "JRE22zo";
 
 
     return (
         <>
-            <h1>{name}</h1>
+            {/* <h1>{name}</h1>
             <address>
                 gender: {gender} <br />
                 birthday: {(new Date(birthday)).toLocaleDateString()}<br />
@@ -35,7 +37,8 @@ const ContactDetails = () => {
                 {zip} <br />
                 {country}
             </address> 
-            <Link to="/contacts/:id/update">Update Contact</Link>
+            <Link to="/contacts/:id/update">Update Contact</Link> */}
+            <DeleteContactButton id={id}/>
         </>
     )
 

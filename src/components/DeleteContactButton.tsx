@@ -1,9 +1,29 @@
-import handleDeleteButtonClick from "./../utilities";
+import { useEffect } from "react";
 
-const DeleteContactButton = () => {
+interface DeleteButtonProps {
+    id: string
+}
+
+const DeleteContactButton = ({id}: DeleteButtonProps) => {
+    //TODO: get this DELETE request to work
+    const handleDeleteButtonClick = async () => {
+        
+        try {
+            const response = await fetch(`http://locoalhost:3000/contacts/${id}`, {method: "DELETE"});
+            const result = await response.json();
+            console.log("UrContact was successfully deleted", result);
+        } catch (error) {
+            console.log('Failure:', error);
+        }
+    
+    }
+
+    useEffect(() => {
+        handleDeleteButtonClick()
+    }, []);
 
     return (
-        <button type="button" onClick={handleDeleteButtonClick}>Delete Contact</button>
+        <button type="button">Delete Contact</button>
     )
 
 }
