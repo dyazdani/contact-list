@@ -43,7 +43,7 @@ const CreateContactForm = () => {
         console.log(data)
         console.log(JSON.stringify(data))
         try {
-          const response = await fetch("http://localhost:3000/contacts", { //TODO: fix error that is making this POST not work
+          const response = await fetch("http://localhost:3000/contacts", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
