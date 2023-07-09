@@ -39,7 +39,7 @@ const blankContact = {
         country: null
     }
 }
-//TODO: FIgure out why console logs are happening twice
+//TODO: Figure out why console logs are happening twice
 const ContactDetails = () => {
     const param = useParams();
     console.log(param, typeof param)
@@ -79,7 +79,7 @@ const ContactDetails = () => {
                 {targetContact.address.zip} <br />
                 {targetContact.address.country}
             </address> 
-            <Link to={`/contacts/${param.id}/update`}>Update Contact</Link>
+            <Link to={`/contacts/${param.id}/update`} state={param.id}>Update Contact</Link>
             <DeleteContactButton id={param.id}/>
         </>
     )
