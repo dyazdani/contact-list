@@ -39,7 +39,7 @@ const blankContact = {
         country: null
     }
 }
-
+//TODO: FIgure out why console logs are happening twice
 const ContactDetails = () => {
     const param = useParams();
     console.log(param, typeof param)
@@ -48,6 +48,7 @@ const ContactDetails = () => {
     const fetchContacts = async () => {
         const response = await fetch('http://localhost:3000/contacts');
         const contactsData = await response.json();
+        console.log('Contacts:', contactsData)
         for (let i = 0; i < contactsData.length; i++) {
             console.log(contactsData[i].id, contactsData[i].id == param.id)
             if (contactsData[i].id === param.id) {
