@@ -64,12 +64,14 @@ const CreateContactForm = () => {
                 placeholder="First Name" 
                 type="text" 
                 value={firstName} 
-                onChange={(e) => setFirstName(e.target.value)}/>
+                onChange={(e) => setFirstName(e.target.value)}
+            />
             <input 
                 placeholder="Last Name" 
                 type="text" 
                 value={lastName} 
-                onChange={(e) => setLastName(e.target.value)}/>
+                onChange={(e) => setLastName(e.target.value)}
+            />
             <label htmlFor="gender-select">Gender:</label>
             <select 
                 name="gender" 
