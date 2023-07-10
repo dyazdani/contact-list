@@ -7,9 +7,7 @@ import { useEffect, useState, FormEvent} from "react";
     }
 
 const UpdateContactForm = () => {
-    //TODO: control forms
     //TODO: fix warning that says date string is not in correct format
-    //TODO: POST request place edited contact in database
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [gender, setGender] = useState("");
@@ -30,9 +28,7 @@ const UpdateContactForm = () => {
     const fetchContacts = async () => {
         const response = await fetch('http://localhost:3000/contacts');
         const contactsData = await response.json();
-        // console.log('Contacts:', contactsData)
         for (let i = 0; i < contactsData.length; i++) {
-            // console.log(contactsData[i].id, contactsData[i].id == currentId)
             if (contactsData[i].id === currentId) {
                 const currentContact = contactsData[i];
 
@@ -65,7 +61,6 @@ const UpdateContactForm = () => {
                 return;
             }
         }
-        // console.log(currentContact)
     }
 
     useEffect(() => {
