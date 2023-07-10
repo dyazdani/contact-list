@@ -8,6 +8,7 @@ import { useEffect, useState, FormEvent} from "react";
 
 const UpdateContactForm = () => {
     //TODO: fix warning that says date string is not in correct format
+    //TODO: fix error saying that phoneNumberString is not a function.
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [gender, setGender] = useState("");
