@@ -40,10 +40,12 @@ const UpdateContactForm = () => {
 
                 setGender(currentContact.gender);
 
-                const birthdayYear = new Date(currentContact.birthday).getFullYear();
-                const birthdayMonth = new Date(currentContact.birthday).getMonth();
-                const birthdayDate = new Date(currentContact.birthday).getDate();
-                setBirthday(`${birthdayYear}-${birthdayMonth}-${birthdayDate}`);
+                const birthdayYear = new Date(currentContact.birthday).getFullYear().toString();
+                let birthdayMonth = new Date(currentContact.birthday).getMonth().toString();
+                birthdayMonth = birthdayMonth.length < 2 ? "0" + birthdayMonth : birthdayMonth;
+                let birthdayDate = new Date(currentContact.birthday).getDate().toString();
+                birthdayDate = birthdayDate.length < 2 ? "0" + birthdayDate : birthdayDate;
+                setBirthday(birthdayYear + "-" + birthdayMonth + "-" + birthdayDate);
 
                 setEmail(currentContact.email);
 
