@@ -12,7 +12,7 @@
       },
       "address": {
         "street": "906 Dunham Place",
-        "unit": null,
+        "unit": "",
         "city": "Cherokee",
         "state": "AL",
         "zip": "33692",
@@ -67,11 +67,11 @@
         "country_code": 1
       },
       "address": {
-        "street": null,
-        "unit": null,
+        "street": "",
+        "unit": "",
         "city": "Richford",
         "state": "KY",
-        "zip": null,
+        "zip": "",
         "country": "United States"
       }
     },
@@ -87,7 +87,7 @@
       },
       "address": {
         "street": "141 Kaufman Place",
-        "unit": null,
+        "unit": "",
         "city": "Chautauqua",
         "state": "NE",
         "zip": "54626",
@@ -106,7 +106,7 @@
       },
       "address": {
         "street": "198 Ebony Court",
-        "unit": null,
+        "unit": "",
         "city": "Waukeenah",
         "state": "Massachusetts",
         "zip": "07531",
