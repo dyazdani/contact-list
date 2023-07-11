@@ -38,7 +38,6 @@ const ContactList = () => {
     }, []) 
 
     
-    //TODO: fix TS errors
     return contacts.length > 0 ? (
         <>
             <ul>
