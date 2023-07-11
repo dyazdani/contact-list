@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect} from "react";
 import ContactListItem from "./ContactListItem";
 
@@ -49,8 +49,10 @@ const ContactList = () => {
                 })}
             </ul>
             <Link to="/create">Create New Contact</Link>
+            <label htmlFor="contacts-search">Search UrContacts:</label>
+            <input type="search" id="contacts-search" name="query" />
+            <button type="button">Search</button>
         </>
-        
     ) : (
             <>
             <p>UrContact list is empty</p>
