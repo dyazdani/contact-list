@@ -49,6 +49,7 @@ const ContactList = () => {
 
     //TODO: optimize search so that it can find partial match to name search
     // Search for first or last name
+    //TODO: fix the any typing in matchByNameSearResults
     const matchByNameSearchResults = (nameStr: string | null) => {
         const finalNames: any[] = [];
         contacts.map((contact: any) => {
