@@ -1,5 +1,5 @@
 import { Link, useSearchParams } from "react-router-dom";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import ContactListItem from "./ContactListItem";
 
 type ContactListItemType = {
@@ -23,11 +23,13 @@ type ContactListItemType = {
 }
 
 
-
 const ContactList = () => {
     const [contacts, setContacts] = useState([]);
+    const [searchInput, setSearchInput] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
     
+    const query = searchParams.get('query');
+
     const fetchContacts = async () => {
         const response = await fetch('http://localhost:3000/contacts');
         const contactsData = await response.json();
@@ -49,9 +51,24 @@ const ContactList = () => {
                 })}
             </ul>
             <Link to="/create">Create New Contact</Link>
-            <label htmlFor="contacts-search">Search UrContacts:</label>
-            <input type="search" id="contacts-search" name="query" />
-            <button type="button">Search</button>
+                <label htmlFor="contacts-search">Search UrContacts:</label>
+                <input 
+                    type="search" 
+                    id="contacts-search" 
+                    name="query" 
+                    placeholder="Search here..."
+                    value={searchInput} 
+                    onChange={(e) => {
+                        setSearchInput(e.target.value);
+                        console.log(searchInput);
+                    }}
+                />
+                <button 
+                    type="button" 
+                    onClick={() => {
+                        searchInput && setSearchParams({query: searchInput});
+                        console.log("Your search params are:", searchParams.get('query'));
+                    }}>Search</button>
         </>
     ) : (
             <>
