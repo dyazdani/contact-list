@@ -28,9 +28,9 @@ const ContactList = () => {
     const [searchInput, setSearchInput] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
     
-    console.log("searchInput is: ", searchInput);
+    // console.log("searchInput is: ", searchInput);
     const query = searchParams.get('query');
-    console.log("Your search params are:", query);
+    // console.log("Your search params are:", query);
     
 
     const handleClick = () => {
@@ -48,19 +48,18 @@ const ContactList = () => {
     }, []) 
 
     //TODO: optimize search so that it can find partial match to name search
-    // Search for first or last name
     //TODO: fix the any typing in matchByNameSearResults
-    const matchByNameSearchResults = (nameStr: string | null) => {
-        const finalNames: any[] = [];
+    const getMatchingNames = (nameStr: string | null) => {
+        const namesArray: any[] = [];
         contacts.map((contact: any) => {
             if (contact.name === nameStr) {
-                finalNames.push(contact.name);
+                namesArray.push(contact.name);
             }
         })
-        return finalNames;
+        return namesArray;
     }
 
-    console.log("search results: ", matchByNameSearchResults(query))
+    // console.log("search results: ", getMatchingNames(query))
 
     //TODO: if I want to have a search for all values nested in contact, then I can start here
     // let contactValues: unknown[] = [];
@@ -84,10 +83,16 @@ const ContactList = () => {
         <>
             <ul>
                 {contacts.map(contact => {
-                    return (
-                        <ContactListItem name={(contact as ContactListItemType).name} id={(contact as ContactListItemType).id} />
-                    );
-                })}
+                    console.log("query value is: ", query);
+                    console.log("Truthiness of query: ", new Boolean(query).valueOf());
+                    if (!query) {
+                        return <ContactListItem name={(contact as ContactListItemType).name} id={(contact as ContactListItemType).id} />
+                    }
+                    if (getMatchingNames(query).includes((contact as ContactListItemType).name)) {
+                        return <ContactListItem name={(contact as ContactListItemType).name} id={(contact as ContactListItemType).id} />
+                    }
+                })
+                }
             </ul>
             <Link to="/create">Create New Contact</Link>
                 <label htmlFor="contacts-search">Search UrContacts:</label>
