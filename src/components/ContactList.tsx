@@ -105,6 +105,7 @@ const ContactList = () => {
                     onChange={(e) => setSearchInput(e.target.value)}
                 />
                 <button type="button" onClick={handleClick}>Search</button>
+                <Link to="/contacts">See All Contacts</Link>
         </>
     ) : (
             <>
