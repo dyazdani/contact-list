@@ -26,6 +26,7 @@ type ContactListItemType = {
 
 const ContactList = () => {
     const [contacts, setContacts] = useState([]);
+    const [searchParams, setSearchParams] = useSearchParams();
     
     const fetchContacts = async () => {
         const response = await fetch('http://localhost:3000/contacts');
