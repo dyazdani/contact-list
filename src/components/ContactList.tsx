@@ -28,6 +28,7 @@ const ContactList = () => {
     const [searchInput, setSearchInput] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
     
+    console.log("searchInput is: ", searchInput);
     const query = searchParams.get('query');
     console.log("Your search params are:", query);
     
@@ -48,17 +49,17 @@ const ContactList = () => {
 
     //TODO: optimize search so that it can find partial match to name search
     // Search for first or last name
-    const matchByNameSearchResults = (nameStr: string) => {
-        const finalNames: never[] = [];
-        contacts.map((contact: object) => {
+    const matchByNameSearchResults = (nameStr: string | null) => {
+        const finalNames: any[] = [];
+        contacts.map((contact: any) => {
             if (contact.name === nameStr) {
-                finalNames.push(contact.name); //TODO: fix these TS errors
+                finalNames.push(contact.name);
             }
         })
         return finalNames;
     }
 
-    console.log("search results: ", matchByNameSearchResults("Lynnette Pope"))
+    console.log("search results: ", matchByNameSearchResults(query))
 
     //TODO: if I want to have a search for all values nested in contact, then I can start here
     // let contactValues: unknown[] = [];
@@ -95,10 +96,7 @@ const ContactList = () => {
                     name="query" 
                     placeholder="Search here..."
                     value={searchInput} 
-                    onChange={(e) => {
-                        setSearchInput(e.target.value);
-                        console.log("Line 83: ", searchInput);
-                    }}
+                    onChange={(e) => setSearchInput(e.target.value)}
                 />
                 <button type="button" onClick={handleClick}>Search</button>
         </>
