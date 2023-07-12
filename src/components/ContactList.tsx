@@ -29,6 +29,12 @@ const ContactList = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     
     const query = searchParams.get('query');
+    console.log("Your search params are:", query);
+    
+
+    const handleClick = () => {
+        searchInput && setSearchParams({query: searchInput});
+    }
 
     const fetchContacts = async () => {
         const response = await fetch('http://localhost:3000/contacts');
@@ -39,6 +45,37 @@ const ContactList = () => {
     useEffect(() => {
         fetchContacts();
     }, []) 
+
+    //TODO: optimize search so that it can find partial match to name search
+    // Search for first or last name
+    const matchByNameSearchResults = (nameStr: string) => {
+        const finalNames: never[] = [];
+        contacts.map((contact: object) => {
+            if (contact.name === nameStr) {
+                finalNames.push(contact.name); //TODO: fix these TS errors
+            }
+        })
+        return finalNames;
+    }
+
+    console.log("search results: ", matchByNameSearchResults("Lynnette Pope"))
+
+    //TODO: if I want to have a search for all values nested in contact, then I can start here
+    // let contactValues: unknown[] = [];
+    // if (contacts.length) {
+    //     console.log("Line 51: ", contacts);
+    //     contactValues = contacts.flatMap(contact  => {
+    //         const allNestedValuesInObject = [];
+    //         for (const property in contact) {
+    //             if (typeof contact[property] === 'object' && contact[property] !== null) {
+    //                 allNestedValuesInObject.push(Object.values(contact[property]));
+    //             } else {
+    //                 allNestedValuesInObject.push(contact[property]);
+    //             }
+    //         }
+    //         return allNestedValuesInObject.flat();
+    //     })
+    // }
 
     
     return contacts.length > 0 ? (
@@ -60,15 +97,10 @@ const ContactList = () => {
                     value={searchInput} 
                     onChange={(e) => {
                         setSearchInput(e.target.value);
-                        console.log(searchInput);
+                        console.log("Line 83: ", searchInput);
                     }}
                 />
-                <button 
-                    type="button" 
-                    onClick={() => {
-                        searchInput && setSearchParams({query: searchInput});
-                        console.log("Your search params are:", searchParams.get('query'));
-                    }}>Search</button>
+                <button type="button" onClick={handleClick}>Search</button>
         </>
     ) : (
             <>
