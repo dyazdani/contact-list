@@ -86,10 +86,24 @@ const ContactList = () => {
                     console.log("query value is: ", query);
                     console.log("Truthiness of query: ", new Boolean(query).valueOf());
                     if (!query) {
-                        return <ContactListItem name={(contact as ContactListItemType).name} id={(contact as ContactListItemType).id} />
+                        return (
+                            <li>
+                                <ContactListItem 
+                                    key={(contact as ContactListItemType).id}
+                                    name={(contact as ContactListItemType).name} 
+                                    id={(contact as ContactListItemType).id} />    
+                            </li>
+                        )
                     }
                     if (getMatchingNames(query).includes((contact as ContactListItemType).name)) {
-                        return <ContactListItem name={(contact as ContactListItemType).name} id={(contact as ContactListItemType).id} />
+                        return (
+                            <li>
+                                <ContactListItem 
+                                    key={(contact as ContactListItemType).id}
+                                    name={(contact as ContactListItemType).name} 
+                                    id={(contact as ContactListItemType).id} />    
+                            </li>
+                        )                   
                     }
                 })
                 }
