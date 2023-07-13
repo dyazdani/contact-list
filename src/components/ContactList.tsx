@@ -82,8 +82,6 @@ const ContactList = () => {
         <>
             <ul>
                 {contacts.map(contact => {
-                    console.log("query value is: ", query);
-                    console.log("Truthiness of query: ", new Boolean(query).valueOf());
                     if (!query) {
                         return (
                             <li>
