@@ -1,4 +1,6 @@
 import { useParams, Link} from "react-router-dom";
+import { useEffect, useState } from "react";
+import DeleteContactButton from "./DeleteContactButton";
 /*
 TYPES:
     name: string
@@ -16,26 +18,69 @@ TYPES:
 
 */
 
+type Birthday = number | null
+
+const blankContact = {
+    id: null,
+    name: null,
+    gender: null,
+    birthday: null,
+    email: null,
+    phone: {
+        phone: null,
+        country_code: null
+    },
+    address: {
+        street: null,
+        unit: null,
+        city: null,
+        state: null,
+        zip: null,
+        country: null
+    }
+}
+//TODO: Figure out why console logs are happening twice
 const ContactDetails = () => {
-    const id = useParams();
+    const param = useParams();
+    console.log(param, typeof param)
+    const [targetContact, setTargetContact] = useState(blankContact);
+    
+    const fetchContacts = async () => {
+        const response = await fetch('http://localhost:3000/contacts');
+        const contactsData = await response.json();
+        console.log('Contacts:', contactsData)
+        for (let i = 0; i < contactsData.length; i++) {
+            console.log(contactsData[i].id, contactsData[i].id == param.id)
+            if (contactsData[i].id === param.id) {
+                setTargetContact(contactsData[i]);
+                return;
+            }
+        }
+        console.log(targetContact)
+    }
+
+    useEffect(() => {
+        fetchContacts();
+    }, []) 
 
 
     return (
         <>
-            <h1>{name}</h1>
+            <h1>{targetContact.name}</h1>
             <address>
-                gender: {gender} <br />
-                birthday: {(new Date(birthday)).toLocaleDateString()}<br />
-                email: <a href="mailto:">{email}</a><br />
-                phone: <a href={`tel:+${countryCode}${phoneNumber}`}>{formatPhoneNumber()}</a><br />
+                gender: {targetContact.gender} <br />
+                birthday: {typeof targetContact.birthday === 'number' ? (new Date(targetContact.birthday)).toLocaleDateString() : null}<br />
+                email: <a href="mailto:">{targetContact.email}</a><br />
+                phone: <a href={`tel:+${targetContact.phone.country_code}${targetContact.phone.phone}`}>{`${targetContact.phone.country_code}${targetContact.phone.phone}`}</a><br />
                 address: <br />
-                {street} <br />
-                {unit} <br />
-                {city}, {state} <br />
-                {zip} <br />
-                {country}
+                {targetContact.address.street} <br />
+                {targetContact.address.unit} <br />
+                {targetContact.address.city}, {targetContact.address.state} <br />
+                {targetContact.address.zip} <br />
+                {targetContact.address.country}
             </address> 
-            <Link to="/contacts/:id/update">Update Contact</Link>
+            <Link to={`/contacts/${param.id}/update`} state={param.id}>Update Contact</Link>
+            <DeleteContactButton id={param.id}/>
         </>
     )
 
