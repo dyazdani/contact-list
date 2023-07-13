@@ -52,7 +52,7 @@ const ContactList = () => {
     const getMatchingNames = (nameStr: string | null) => {
         const namesArray: any[] = [];
         contacts.map((contact: any) => {
-            if (contact.name === nameStr) {
+            if (contact.name.includes(nameStr)) {
                 namesArray.push(contact.name);
             }
         })
