@@ -29,7 +29,7 @@ const ContactList = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     
     // console.log("searchInput is: ", searchInput);
-    const query = searchParams.get('query');
+    const query = searchParams.get('query') ?? "";
     // console.log("Your search params are:", query);
     
 
@@ -48,17 +48,9 @@ const ContactList = () => {
     }, []) 
 
     //TODO: fix the any typing in matchByNameSearResults
-    const getMatchingNames = (nameStr: string | null) => {
-        const namesArray: any[] = [];
-        contacts.map((contact: any) => {
-            if (contact.name.includes(nameStr)) {
-                namesArray.push(contact.name);
-            }
-        })
-        return namesArray;
-    }
+    const getContactsMatchedToString = (nameStr: string) => contacts.filter((contact: ContactListItemType) => contact.name.includes(nameStr));
 
-    // console.log("search results: ", getMatchingNames(query))
+    // console.log("search results: ", getContactsMatchedToString(query))
 
     //TODO: if I want to have a search for all values nested in contact, then I can start here
     // let contactValues: unknown[] = [];
@@ -77,33 +69,23 @@ const ContactList = () => {
     //     })
     // }
 
+    const contactsMatchedToQuery = getContactsMatchedToString(query); 
+
     
     return contacts.length > 0 ? (
         <>
             <ul>
-                {contacts.map(contact => {
-                    if (!query) {
-                        return (
-                            <li>
-                                <ContactListItem 
-                                    key={(contact as ContactListItemType).id}
-                                    name={(contact as ContactListItemType).name} 
-                                    id={(contact as ContactListItemType).id} />    
-                            </li>
-                        )
-                    }
-                    if (getMatchingNames(query).includes((contact as ContactListItemType).name)) {
-                        return (
-                            <li>
-                                <ContactListItem 
-                                    key={(contact as ContactListItemType).id}
-                                    name={(contact as ContactListItemType).name} 
-                                    id={(contact as ContactListItemType).id} />    
-                            </li>
-                        )                   
-                    }
-                })
-                }
+                {contactsMatchedToQuery.map((contact: ContactListItemType) => {
+                    return (
+                        <li>
+                            <ContactListItem 
+                                key={contact.id}
+                                name={contact.name} 
+                                id={contact.id} 
+                            />    
+                        </li>
+                    )
+                })}
             </ul>
             <Link to="/create">Create New Contact</Link>
                 <label htmlFor="contacts-search">Search UrContacts:</label>
