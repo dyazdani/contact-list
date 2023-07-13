@@ -47,7 +47,6 @@ const ContactList = () => {
         fetchContacts();
     }, []) 
 
-    //TODO: optimize search so that it can find partial match to name search
     //TODO: fix the any typing in matchByNameSearResults
     const getMatchingNames = (nameStr: string | null) => {
         const namesArray: any[] = [];
