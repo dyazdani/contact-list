@@ -28,10 +28,7 @@ const ContactList = () => {
     const [searchInput, setSearchInput] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
     
-    // console.log("searchInput is: ", searchInput);
     const query = searchParams.get('query') ?? "";
-    // console.log("Your search params are:", query);
-    
 
     const handleClick = () => {
         searchInput && setSearchParams({query: searchInput});
