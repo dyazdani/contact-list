@@ -1,11 +1,9 @@
-//TODO: link this component to ContactDetails.tsx page with details corresponding to name prop
+import { Link } from "react-router-dom";
 
-const ContactListItem = ({name}) => {
+const ContactListItem = ({name, id}: {name: string, id: string}) => {
 
     return (
-        <li>
-            <a href="">{name}</a>
-        </li>
+        <Link to={`/contacts/${id}`}>{name}</Link>
     )
 
 }
