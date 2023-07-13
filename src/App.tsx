@@ -13,9 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contacts" element={<ContactList />} />
-        <Route path="/contacts/:id" element={<ContactDetails />} />
+        <Route path="/contacts/:contactID" element={<ContactDetails />} />
         <Route path="/create" element={<CreateContactForm />} />
-        <Route path="/contacts/:id/update" element={<UpdateContactForm />} />
+        <Route path="/contacts/:contactID/update" element={<UpdateContactForm />} />
         <Route path="*" element={<p>Page Not Found</p>} />
       </Routes>
     </>
