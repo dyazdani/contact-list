@@ -80,7 +80,7 @@ const ContactDetails = () => {
                 {targetContact.address.country}
             </address> 
             <Link to={`/contacts/${param.id}/update`} state={param.id}>Update Contact</Link>
-            <DeleteContactButton id={param.id}/>
+            <DeleteContactButton id={param.id ? param.id : ""}/>
         </>
     )
 
