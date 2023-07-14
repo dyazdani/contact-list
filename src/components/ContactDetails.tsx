@@ -23,14 +23,14 @@ const blankContact = {
 }
 //TODO: Figure out why console logs are happening twice
 const ContactDetails = () => {
-    const param = useParams();
+    const {contactID} = useParams();
     const [targetContact, setTargetContact] = useState(blankContact);
     
     const fetchContacts = async () => {
         const response = await fetch('http://localhost:3000/contacts');
         const contactsData = await response.json();
         for (let i = 0; i < contactsData.length; i++) {
-            if (contactsData[i].id === param.id) {
+            if (contactsData[i].id === contactID) {
                 setTargetContact(contactsData[i]);
                 return;
             }
@@ -57,8 +57,8 @@ const ContactDetails = () => {
                 {targetContact.address.zip} <br />
                 {targetContact.address.country}
             </address> 
-            <Link to={`/contacts/${param.id}/update`} state={param.id}>Update Contact</Link>
-            <DeleteContactButton id={param.id ? param.id : ""}/>
+            <Link to={`/contacts/${contactID}/update`} state={contactID}>Update Contact</Link>
+            <DeleteContactButton id={contactID ? contactID : ""}/>
         </>
     )
 
