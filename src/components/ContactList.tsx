@@ -74,9 +74,8 @@ const ContactList = () => {
             <ul>
                 {contactsMatchedToQuery.map((contact: ContactListItemType) => {
                     return (
-                        <li>
+                        <li key={contact.id}>
                             <ContactListItem 
-                                key={contact.id}
                                 name={contact.name} 
                                 id={contact.id} 
                             />    
