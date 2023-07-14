@@ -28,6 +28,7 @@ const ContactList = () => {
     const [searchInput, setSearchInput] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
     
+    console.log("contacts: ", contacts)
     const query = searchParams.get('query') ?? "";
 
     const handleClick = () => {
@@ -44,7 +45,6 @@ const ContactList = () => {
         fetchContacts();
     }, []) 
 
-    //TODO: fix the any typing in matchByNameSearResults
     const getContactsMatchedToString = (nameStr: string) => contacts.filter((contact: ContactListItemType) => contact.name.includes(nameStr));
 
     // console.log("search results: ", getContactsMatchedToString(query))
