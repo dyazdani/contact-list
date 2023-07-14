@@ -1,24 +1,6 @@
 import { useParams, Link} from "react-router-dom";
 import { useEffect, useState } from "react";
 import DeleteContactButton from "./DeleteContactButton";
-/*
-TYPES:
-    name: string
-    gender?: string
-    birthday?: number
-    email?: `${string}@${string}.${string}`
-    phoneNumber?: number
-    countryCode?: number
-    street?: `${number} ${string}`
-    unit?: string
-    city?: string
-    state?: string
-    zip?: number
-    country?: string
-
-*/
-
-type Birthday = number | null
 
 const blankContact = {
     id: null,
