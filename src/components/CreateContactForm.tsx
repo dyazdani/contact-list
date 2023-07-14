@@ -1,4 +1,5 @@
 import { useState, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 const parsePhoneNumber = (phoneNumberString: string) => {
     return +(phoneNumberString.split('').filter(el => el !== '-').join(''));
@@ -18,6 +19,8 @@ const CreateContactForm = () => {
     const [province, setProvince] = useState("");
     const [zip, setZip] = useState("");
     const [country, setCountry] = useState("");
+
+    const navigate = useNavigate();
 
 
       const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -53,6 +56,7 @@ const CreateContactForm = () => {
           
           const result = await response.json();
           console.log("Success:", result);
+          navigate("/contacts")
         } catch (error) {
           console.error("Error:", error);
         }
