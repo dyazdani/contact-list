@@ -44,7 +44,6 @@ const ContactList = () => {
         fetchContacts();
     }, []) 
 
-    //TODO: fix the any typing in matchByNameSearResults
     const getContactsMatchedToString = (nameStr: string) => contacts.filter((contact: ContactListItemType) => contact.name.includes(nameStr));
 
     // console.log("search results: ", getContactsMatchedToString(query))
