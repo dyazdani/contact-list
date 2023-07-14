@@ -5,6 +5,7 @@ const parsePhoneNumber = (phoneNumberString: string) => {
     return +(phoneNumberString.split('').filter(el => el !== '-').join(''));
 }
 
+//TODO: Don't allow creation of contact without at least one name
 const CreateContactForm = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -93,7 +94,7 @@ const CreateContactForm = () => {
                 <option value="prefer-to-not-say">Prefer to not say</option>
             </select>
             <label htmlFor="birthday">Birthday: </label>
-            <input 
+            <input //TODO: do not accept dates in the future from today
                 name="birthday" 
                 type="date" 
                 id="birthday"
@@ -106,14 +107,14 @@ const CreateContactForm = () => {
                 id="email"
                 onChange={(e) => setEmail(e.target.value)}/>
             <label htmlFor="phone-number">Phone Number: </label>
-            <input type="tel" 
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+            <input type="tel" //TODO: fix phone number rendering as undefined
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" //TODO: Show the phone number format in label?
                 placeholder="ex: 444-444-4444" 
                 id="phone-number"
                 value={phoneNumber} 
                 onChange={(e) => setPhoneNumber(e.target.value)}/>
             <label htmlFor="country-code">Country Code: </label>
-            <input 
+            <input //TODO: only allow input that is integer >= 0 and up to 4 digits.
                 type="number" 
                 id="country-code"
                 value={countryCode} 
