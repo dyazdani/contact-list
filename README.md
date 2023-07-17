@@ -10,7 +10,7 @@ UrContacts is a React contact list app built with full CRUD capabilities. It use
     - SSH: `git@github.com:dyazdani/contact-list.git`
     - GitHub CLI: `gh repo clone dyazdani/contact-list` 
 
-2. `cd /contact-list`
+2. `cd contact-list`
 
 3. `npm install` 
 
