@@ -26,7 +26,7 @@ UrContacts is a React contact list app built with full CRUD capabilities. It use
 
 7. In a separate terminal, start your React app using Vite: `npm run dev`
 
-## Additional Notes
+### Additional Notes
 UrContacts uses React Router to route to various URLs in on your browser: 
 
 /                               => Home page
@@ -45,22 +45,22 @@ UrContacts provides functionality for creating, updating, deleting, and searchin
 
 ## User Experience
 
-# Home Page
+### Home Page
 From the home page, you will be able to see how many contacts are currently in your list. Click on the link on the homepage to view your contact list. If there are currently np contacts in your list, you will be prompted to create a new contact.
 
-# Create a New Contact
+### Create a New Contact
 To create a new contact, click the "Create New Contact link in the lower left corner. A form will then appear for you to fill out and submit. Then, voila, you will see the name of your new contact in your list.
 
-# Contact Details
+### Contact Details
 To view the details of any of your contacts, click on their name from the contact list screen and you will be taken to a page with their contact information.
 
-# Update Contact
+### Update Contact
 To update a contact's information, click on the "Update Contact" link in the bottom left corner of their contact details page. The same form that appeared when you created the contact will reappear with the current information populated in it. Simply edit the information there and resubmit the form to save.
 
-# Delete Contact
+### Delete Contact
 To delete a contact, click the "Delete Contact" button on the contact's details page.
 
-# Search
+### Search
 From the contact list page, you can use the search field at the bottom to search for a specific contact. After typing in the search field and clicking the "Search" button, your results will appear on the same page as a filtered contact list of the results that matched your search. To view all of the contacts in your list again, click the "See All Contacts" link in the lower right corner. 
 
 
