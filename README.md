@@ -3,7 +3,7 @@
 
 UrContacts allows you to store and manage your contacts in a convenient web app. Create, edit, delete, and search for contacts in your UrContacts contact list.  
 
-## View UrContacts
+## View Contact List
 
 From your home page, you will be able to see how many contacts are currently in your list. Click on the link on the homepage to view your contact list. If there are currently np contacts in your list, you will be prompted to create a new contact.
 
@@ -13,7 +13,7 @@ To create a new contact, click the "Create New Contact link in the lower left co
 
 ## Contact Details
 
-To view the details of any of UrContacts, click on their name from the contact list screen and you will be taken to a page with their contact information.
+To view the details of any of your contacts, click on their name from the contact list screen and you will be taken to a page with their contact information.
 
 ## Update Contact
 
