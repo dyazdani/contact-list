@@ -26,10 +26,6 @@ a:hover {
   margin: 5rem 0;
 }
 
-#root * {
-  margin-bottom: 15px; 
-}
-
 #root p {
   margin-top: 5px; 
 }
@@ -44,9 +40,10 @@ a:hover {
   gap: 15px;
 }
 
-h1 {
+#root h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin-bottom: 25px;
 }
 
 ul {
@@ -69,6 +66,8 @@ button {
   background-color: #ffdc5e;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 button:hover {
   border-color: #001B2E;
@@ -92,7 +91,7 @@ button a {
   margin-top: 15px;
 }
 
-#address div {
+form div {
   margin-bottom: 5px;
 }
 
@@ -100,3 +99,7 @@ label {
   font-weight: 500;
 }
 
+h4 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
