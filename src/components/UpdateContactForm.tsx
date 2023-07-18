@@ -186,7 +186,7 @@ const UpdateContactForm = () => {
                     />
                 </div>
                 <div id="form-address">
-                    <h3>Address</h3>
+                    <h4>Address</h4>
                     <div>
                         <label htmlFor="street">Street: </label>
                         <input 
