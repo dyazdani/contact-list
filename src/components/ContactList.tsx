@@ -70,6 +70,7 @@ const ContactList = () => {
     
     return contacts.length > 0 ? (
         <>
+            <h1>UrContacts</h1>
             <ul>
                 {contactsMatchedToQuery.map((contact: ContactListItemType) => {
                     return (
