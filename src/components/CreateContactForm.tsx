@@ -60,7 +60,7 @@ const CreateContactForm = () => {
 
     return (
         <>
-            <h2>New Contact</h2>
+            <h1>New Contact</h1>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="first-name">First Name: </label>
