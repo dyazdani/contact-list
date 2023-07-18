@@ -25,6 +25,7 @@ const blankContact = {
 const ContactDetails = () => {
     const {contactID} = useParams();
     const [targetContact, setTargetContact] = useState(blankContact);
+   
     
     const fetchContacts = async () => {
         const response = await fetch('http://localhost:3000/contacts');
@@ -41,7 +42,6 @@ const ContactDetails = () => {
         fetchContacts();
     }, []) 
 
-
     return (
         <>
             <h1>{targetContact.name}</h1>
@@ -53,7 +53,9 @@ const ContactDetails = () => {
                 <div>
                     <dt>birthday: </dt>
                     <dd>
-                        <time dateTime={new Date(targetContact.birthday).toISOString()}>{typeof targetContact.birthday === 'number' && (new Date(targetContact.birthday)).toLocaleDateString()}</time>
+                        <time 
+                            dateTime={
+                                targetContact.birthday && new Date(targetContact.birthday).toISOString()}>{targetContact.birthday && (new Date(targetContact.birthday)).toLocaleDateString()}</time>
                     </dd>
                 </div>
                 <div>
