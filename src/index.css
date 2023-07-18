@@ -23,6 +23,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin: 5rem 0;
 }
 
 #root * {
