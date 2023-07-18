@@ -59,7 +59,7 @@ const CreateContactForm = () => {
       }
 
     return (
-<form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="first-name">First Name: </label>
             <input 
                 type="text" 
@@ -114,7 +114,7 @@ const CreateContactForm = () => {
                 id="country-code"
                 value={countryCode} 
                 onChange={(e) => setCountryCode(e.target.value)}/>
-            <div id="address">
+            <div id="form-address">
                 <p>Address:</p>
                 <label htmlFor="street">Street: </label>
                 <input 
