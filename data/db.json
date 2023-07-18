@@ -131,25 +131,6 @@
         "zip": "79961",
         "country": "United States"
       }
-    },
-    {
-      "name": "Dara Yazdani",
-      "gender": "non-binary",
-      "birthday": 1690329600,
-      "email": "bob@bob.com",
-      "phone": {
-        "number": 9878765678,
-        "country_code": 1
-      },
-      "address": {
-        "street": "817 Peregrine Ave",
-        "unit": "123",
-        "city": "Davis",
-        "province": "California",
-        "zip": "95616",
-        "country": "United States"
-      },
-      "id": "JRE22zo"
     }
   ],
   "notes": [

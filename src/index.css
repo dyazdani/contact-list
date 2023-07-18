@@ -94,8 +94,11 @@ button a {
   margin-top: 15px;
 }
 
-
 #address div {
   margin-bottom: 5px;
+}
+
+label {
+  font-weight: 500;
 }
 
