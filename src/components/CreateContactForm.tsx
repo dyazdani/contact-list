@@ -59,16 +59,18 @@ const CreateContactForm = () => {
       }
 
     return (
-        <form onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit}>
+            <label htmlFor="first-name">First Name: </label>
             <input 
-                placeholder="First Name" 
                 type="text" 
+                id="first-name"
                 value={firstName} 
                 onChange={(e) => setFirstName(e.target.value)}
             />
+            <label htmlFor="last-name">Last Name: </label>
             <input 
-                placeholder="Last Name" 
-                type="text" 
+                type="text"
+                id="last-time" 
                 value={lastName} 
                 onChange={(e) => setLastName(e.target.value)}
             />
@@ -86,55 +88,68 @@ const CreateContactForm = () => {
                 <option value="other">Other</option>
                 <option value="prefer-to-not-say">Prefer to not say</option>
             </select>
-            <input 
+            <label htmlFor="birthday">Birthday: </label>
+            <input //TODO: do not accept dates in the future from today
                 name="birthday" 
                 type="date" 
+                id="birthday"
                 value={birthday} 
                 onChange={(e) => setBirthday(e.target.value)}/>
+            <label htmlFor="email">Email: </label>
             <input 
                 type="email" 
                 value={email} 
+                id="email"
                 onChange={(e) => setEmail(e.target.value)}/>
-            <input type="tel" 
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+            <label htmlFor="phone-number">Phone Number: </label>
+            <input type="tel" //TODO: fix phone number rendering as undefined
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" //TODO: Show the phone number format in label?
                 placeholder="ex: 444-444-4444" 
+                id="phone-number"
                 value={phoneNumber} 
                 onChange={(e) => setPhoneNumber(e.target.value)}/>
-            <input 
+            <label htmlFor="country-code">Country Code: </label>
+            <input //TODO: only allow input that is integer >= 0 and up to 4 digits.
                 type="number" 
-                placeholder="country code"
+                id="country-code"
                 value={countryCode} 
                 onChange={(e) => setCountryCode(e.target.value)}/>
             <div id="address">
                 <p>Address:</p>
+                <label htmlFor="street">Street: </label>
                 <input 
                     type="text" 
-                    placeholder="Street"
+                    id="street"
                     value={street} 
                     onChange={(e) => setStreet(e.target.value)}/>
+                <label htmlFor="unit">Unit: </label>
                 <input 
                     type="text" 
-                    placeholder="Unit"
+                    id="unit"
                     value={unit} 
                     onChange={(e) => setUnit(e.target.value)}/>
+                <label htmlFor="city">City: </label>
                 <input 
                     type="text" 
-                    placeholder="City"
+                    id="city"
                     value={city} 
                     onChange={(e) => setCity(e.target.value)}/>
+                <label htmlFor="state">State: </label>
                 <input 
                     type="text" 
-                    placeholder="State"
+                    id="state"
                     value={province} 
                     onChange={(e) => setProvince(e.target.value)}/>
+                <label htmlFor="zip-code">ZIP Code: </label>
                 <input
                     type="text" 
-                    placeholder="ZIP Code"
+                    id="zip-code"
                     value={zip} 
                     onChange={(e) => setZip(e.target.value)}/>
+                <label htmlFor="country">Country: </label>
                 <input 
                     type="text" 
-                    placeholder="Country"
+                    id="country"
                     value={country} 
                     onChange={(e) => setCountry(e.target.value)}/>
             </div>
