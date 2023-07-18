@@ -6,7 +6,7 @@ const blankContact = {
     id: null,
     name: null,
     gender: null,
-    birthday: null,
+    birthday: "",
     email: null,
     phone: {
         phone: null,
@@ -52,7 +52,9 @@ const ContactDetails = () => {
                 </div>
                 <div>
                     <dt>birthday: </dt>
-                    <dd>{typeof targetContact.birthday === 'number' ? (new Date(targetContact.birthday)).toLocaleDateString() : null}</dd>
+                    <dd>
+                        <time dateTime={new Date(targetContact.birthday).toISOString()}>{typeof targetContact.birthday === 'number' && (new Date(targetContact.birthday)).toLocaleDateString()}</time>
+                    </dd>
                 </div>
                 <div>
                     <dt>email: </dt>
@@ -74,8 +76,7 @@ const ContactDetails = () => {
                     <Link to={`/contacts/${contactID}/update`} state={contactID}>Update Contact</Link>
                 </button> 
                 <DeleteContactButton id={contactID ? contactID : ""}/>
-            </div>
-            
+            </div> 
         </>
     )
 
