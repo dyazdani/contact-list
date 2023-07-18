@@ -21,9 +21,33 @@ a:hover {
   text-align: center;
 }
 
+#root * {
+  margin-bottom: 15px; 
+}
+
+#search-button {
+  margin-left: 15px;
+}
+
+#button-div {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 15px;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  margin-bottom: 10px;
 }
 
 button {
@@ -33,7 +57,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #81bcc4;
   cursor: pointer;
   transition: border-color 0.25s;
 }

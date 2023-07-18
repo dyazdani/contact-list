@@ -82,8 +82,8 @@ const ContactList = () => {
                     )
                 })}
             </ul>
-            <Link to="/create">Create New Contact</Link>
-                <label htmlFor="contacts-search">Search UrContacts:</label>
+            <div>
+                <label htmlFor="contacts-search">Search UrContacts: </label>
                 <input 
                     type="search" 
                     id="contacts-search" 
@@ -92,8 +92,12 @@ const ContactList = () => {
                     value={searchInput} 
                     onChange={(e) => setSearchInput(e.target.value)}
                 />
-                <button type="button" onClick={handleClick}>Search</button>
-                <Link to="/contacts">See All Contacts</Link>
+                <button id="search-button" type="button" onClick={handleClick}>Search</button>
+            </div>
+            <div id="button-div">
+                <button type="button"><Link to="/create">Create New Contact</Link></button>
+                <button type="button"><Link to="/contacts">See All Contacts</Link></button>
+            </div>
         </>
     ) : (
             <>
