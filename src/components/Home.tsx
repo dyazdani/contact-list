@@ -19,7 +19,7 @@ const Home = () => {
         <div>
             <h1>Welcome to UrContacts!</h1>
             <h2>Your list has {numberOfContacts} contacts</h2>
-            <Link to="/contacts">Go to UrContacts List</Link>
+            <button type="button"><Link to="/contacts">Go to UrContacts List</Link></button>
         </div>
     )
 
