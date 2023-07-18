@@ -64,9 +64,9 @@ const ContactDetails = () => {
                 </div>
                 <div id="address">
                     <h4>address:</h4>
-                    <div>{targetContact.address.street}  {targetContact.address.unit}</div>
-                    <div>{targetContact.address.city}, {targetContact.address.state}  {targetContact.address.zip}</div>
-                    <div>{targetContact.address.country}</div>
+                    <address>{targetContact.address.street}  {targetContact.address.unit} <br />
+                    {targetContact.address.city}, {targetContact.address.state}  {targetContact.address.zip}<br />
+                    {targetContact.address.country}</address>
                 </div>
             </address>
             <div className="details-buttons">
