@@ -46,18 +46,30 @@ const ContactDetails = () => {
         <>
             <h1>{targetContact.name}</h1>
             <address>
-                gender: {targetContact.gender} <br />
-                birthday: {typeof targetContact.birthday === 'number' ? (new Date(targetContact.birthday)).toLocaleDateString() : null}<br />
-                email: <a href="mailto:">{targetContact.email}</a><br />
-                phone: <a href={`tel:+${targetContact.phone.country_code}${targetContact.phone.phone}`}>{`${targetContact.phone.country_code}${targetContact.phone.phone}`}</a><br />
-                address: <br />
-                {targetContact.address.street} <br />
-                {targetContact.address.unit} <br />
-                {targetContact.address.city}, {targetContact.address.state} <br />
-                {targetContact.address.zip} <br />
-                {targetContact.address.country}
+                <div>
+                    <h4>gender: </h4>
+                    <p>{targetContact.gender}</p>
+                </div>
+                <div>
+                    <h4>birthday: </h4>
+                    <p>{typeof targetContact.birthday === 'number' ? (new Date(targetContact.birthday)).toLocaleDateString() : null}</p>
+                </div>
+                <div>
+                    <h4>email: </h4>
+                    <p><a href="mailto:">{targetContact.email}</a></p>
+                </div>
+                <div>
+                    <h4>phone: </h4>
+                    <p><a href={`tel:+${targetContact.phone.country_code}${targetContact.phone.phone}`}>{`${targetContact.phone.country_code}${targetContact.phone.phone}`}</a></p>
+                </div>
+                <div id="address">
+                    <h4>address:</h4>
+                    <div>{targetContact.address.street}  {targetContact.address.unit}</div>
+                    <div>{targetContact.address.city}, {targetContact.address.state}  {targetContact.address.zip}</div>
+                    <div>{targetContact.address.country}</div>
+                </div>
             </address>
-            <div id="details-buttons">
+            <div className="details-buttons">
                 <button type="button">
                     <Link to={`/contacts/${contactID}/update`} state={contactID}>Update Contact</Link>
                 </button> 

@@ -4,8 +4,8 @@
   background-color: #fbbdbd;
 }
 
-address {
-  color: #000000;
+address * {
+  margin-bottom: 10px;
 }
 
 a {
@@ -78,9 +78,15 @@ button a {
   text-decoration: none;
 }
 
-#details-buttons {
+.details-buttons {
   display: flex;
   flex-flow: row nowrap;
   gap: 15px;
   margin-top: 15px;
 }
+
+
+#address div {
+  margin-bottom: 5px;
+}
+
