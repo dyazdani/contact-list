@@ -56,9 +56,14 @@ const ContactDetails = () => {
                 {targetContact.address.city}, {targetContact.address.state} <br />
                 {targetContact.address.zip} <br />
                 {targetContact.address.country}
-            </address> 
-            <Link to={`/contacts/${contactID}/update`} state={contactID}>Update Contact</Link>
-            <DeleteContactButton id={contactID ? contactID : ""}/>
+            </address>
+            <div id="details-buttons">
+                <button type="button">
+                    <Link to={`/contacts/${contactID}/update`} state={contactID}>Update Contact</Link>
+                </button> 
+                <DeleteContactButton id={contactID ? contactID : ""}/>
+            </div>
+            
         </>
     )
 

@@ -77,3 +77,10 @@ button a {
   color: #000000;
   text-decoration: none;
 }
+
+#details-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 15px;
+  margin-top: 15px;
+}
