@@ -29,6 +29,14 @@ a:hover {
   margin-bottom: 15px; 
 }
 
+#root p {
+  margin-top: 5px; 
+}
+
+#root h4 {
+  margin-bottom: 5px;
+}
+
 #search-button {
   margin-left: 15px;
 }
