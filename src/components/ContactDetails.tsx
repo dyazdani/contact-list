@@ -45,30 +45,30 @@ const ContactDetails = () => {
     return (
         <>
             <h1>{targetContact.name}</h1>
-            <address>
+            <dl>
                 <div>
-                    <h4>gender: </h4>
-                    <p>{targetContact.gender}</p>
+                    <dt>gender: </dt>
+                    <dd>{targetContact.gender}</dd>
                 </div>
                 <div>
-                    <h4>birthday: </h4>
-                    <p>{typeof targetContact.birthday === 'number' ? (new Date(targetContact.birthday)).toLocaleDateString() : null}</p>
+                    <dt>birthday: </dt>
+                    <dd>{typeof targetContact.birthday === 'number' ? (new Date(targetContact.birthday)).toLocaleDateString() : null}</dd>
                 </div>
                 <div>
-                    <h4>email: </h4>
-                    <p><a href="mailto:">{targetContact.email}</a></p>
+                    <dt>email: </dt>
+                    <dd><a href="mailto:">{targetContact.email}</a></dd>
                 </div>
                 <div>
-                    <h4>phone: </h4>
-                    <p><a href={`tel:+${targetContact.phone.country_code}${targetContact.phone.phone}`}>{`${targetContact.phone.country_code}${targetContact.phone.phone}`}</a></p>
+                    <dt>phone: </dt>
+                    <dd><a href={`tel:+${targetContact.phone.country_code}${targetContact.phone.phone}`}>{`${targetContact.phone.country_code}${targetContact.phone.phone}`}</a></dd>
                 </div>
+                </dl>
                 <div id="address">
                     <h4>address:</h4>
                     <address>{targetContact.address.street}  {targetContact.address.unit} <br />
                     {targetContact.address.city}, {targetContact.address.state}  {targetContact.address.zip}<br />
                     {targetContact.address.country}</address>
                 </div>
-            </address>
             <div className="details-buttons">
                 <button type="button">
                     <Link to={`/contacts/${contactID}/update`} state={contactID}>Update Contact</Link>
