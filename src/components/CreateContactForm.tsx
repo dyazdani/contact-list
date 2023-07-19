@@ -1,10 +1,6 @@
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 
-const parsePhoneNumber = (phoneNumberString: string) => {
-    return +(phoneNumberString.split('').filter(el => el !== '-').join(''));
-}
-
 const CreateContactForm = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -31,8 +27,8 @@ const CreateContactForm = () => {
             birthday: birthday ? new Date(birthday).getTime() / 1000 : "",
             email,
             phone: {
-              number: parsePhoneNumber(phoneNumber),
-              country_code: parsePhoneNumber(countryCode)
+              number: phoneNumber,
+              country_code: countryCode
             },
             address: {
               street,
