@@ -18,6 +18,23 @@ const CreateContactForm = () => {
 
     const navigate = useNavigate();
 
+    const todaySplitDateStringArray = new Date(Date.now()).toLocaleDateString().split("/");
+    const todayDateObject = {
+        "year": todaySplitDateStringArray[2],
+        "month": todaySplitDateStringArray[0], 
+        "day": todaySplitDateStringArray[1]
+    }
+    if (todayDateObject.year.length < 4) {
+        todayDateObject.year = todayDateObject.year.padStart(4, "0");
+    }
+    if (todayDateObject.month.length < 2) {
+        todayDateObject.month = todayDateObject.month.padStart(2, "0")
+    }
+    if (todayDateObject.day.length < 2) {
+        todayDateObject.day = todayDateObject.day.padStart(2, "0")
+    }
+
+    const formattedTodayDateString = todayDateObject.year + "-" + todayDateObject.month + "-" + todayDateObject.day;
 
       const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -90,10 +107,10 @@ const CreateContactForm = () => {
                 <option value="prefer-to-not-say">Prefer to not say</option>
             </select>
             <label htmlFor="birthday">Birthday: </label>
-            <input //TODO: do not accept dates in the future from today
                 name="birthday" 
                 type="date" 
                 id="birthday"
+                max={formattedTodayDateString}
                 value={birthday} 
                 onChange={(e) => setBirthday(e.target.value)}/>
             <label htmlFor="email">Email: </label>
