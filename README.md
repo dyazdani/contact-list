@@ -16,15 +16,15 @@ UrContacts is a React contact list app built with full CRUD capabilities. It use
 5. App will be running at port 3000 and can be accessed at http://localhost:3000
 
 
-## Features
+## Information
 
 UrContacts provides functionality for creating, updating, deleting, and searching for contacts in a list stored as a JSON file on a locally hosted json-server. The app uses async calls to the json-server using the fetch API, and data that you add, update, or delete persist in the json-server in the `db.json` file. The app uses the React Router package to create routes to different application features while maintaining a single-page application experience.
 
 ### Technologies Used
-- React
-- TypeScript
-- Vite
-- React Router
+- [React][react]
+- [TypeScript][typeScript]
+- [Vite][vite]
+- [React Router][reactRouter]
 - [json-server][json-server] 
 
 
@@ -74,7 +74,7 @@ UrContacts provides functionality for creating, updating, deleting, and searchin
 Dara Yazdani 
 dara.s.yazdani@gmail.com
 
-[https://github.com/dyazdani/contact-list](https://github.com/dyazdani/)
+<https://github.com/dyazdani/>
 
 ## Contributing
 
@@ -85,6 +85,9 @@ dara.s.yazdani@gmail.com
 5. Create a new Pull Request
 
 
-[typescript]: https://www.typescriptlang.org/id/download
+<!-- Links for technologies -->
+[react]: https://react.dev
+[reactRouter]: https://reactrouter.com/en/main
+[typeScript]: https://www.typescriptlang.org/id/download
 [vite]: https://vitejs.dev/guide/
 [json-server]: https://github.com/typicode/json-server
