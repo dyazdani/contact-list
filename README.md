@@ -5,10 +5,7 @@ UrContacts is a React contact list app built with full CRUD capabilities. It use
 
 ## Installation and Build
 
-1. Clone GitHub repo into a desired local root directory: 
-    - HTTPS: https://github.com/dyazdani/contact-list.git
-    - SSH: `git@github.com:dyazdani/contact-list.git`
-    - GitHub CLI: `gh repo clone dyazdani/contact-list` 
+1. Clone or download GitHub repo into a desired local root directory.
 
 2. `cd contact-list`
 
