@@ -9,7 +9,7 @@ const blankContact = {
     birthday: "",
     email: null,
     phone: {
-        phone: null,
+        number: null,
         country_code: null
     },
     address: {
@@ -21,7 +21,7 @@ const blankContact = {
         country: null
     }
 }
-//TODO: Figure out why console logs are happening twice
+
 const ContactDetails = () => {
     const {contactID} = useParams();
     const [targetContact, setTargetContact] = useState(blankContact);
@@ -42,36 +42,69 @@ const ContactDetails = () => {
         fetchContacts();
     }, []) 
 
-    return (
+    return ( //TODO: The logic of this return should work when merged with changes from the create-contact branch
         <>
             <h1>{targetContact.name}</h1>
             <dl>
                 <div>
-                    <dt>gender: </dt>
-                    <dd>{targetContact.gender}</dd>
+                    {targetContact.gender && (
+                        <>
+                            <dt>gender: </dt>
+                            <dd>{targetContact.gender}</dd>
+                        </>
+                    )}
                 </div>
                 <div>
-                    <dt>birthday: </dt>
-                    <dd>
-                        <time 
-                            dateTime={
-                                targetContact.birthday && new Date(targetContact.birthday).toISOString()}>{targetContact.birthday && (new Date(targetContact.birthday)).toLocaleDateString()}</time>
-                    </dd>
+                    {targetContact.birthday && (
+                        <>
+                            <dt>birthday: </dt>
+                            <dd>
+                                <time 
+                                    dateTime={targetContact.birthday && new Date(targetContact.birthday).toISOString()}
+                                >
+                                    {targetContact.birthday && (new Date(targetContact.birthday)).toLocaleDateString()}
+                                </time>
+                            </dd>
+                        </>
+                    )}
                 </div>
                 <div>
-                    <dt>email: </dt>
-                    <dd><a href="mailto:">{targetContact.email}</a></dd>
+                    {targetContact.email && (
+                        <>
+                            <dt>email: </dt>
+                            <dd><a href="mailto:">{targetContact.email}</a></dd>
+                        </>
+                    )}
+                    
                 </div>
                 <div>
-                    <dt>phone: </dt>
-                    <dd><a href={`tel:+${targetContact.phone.country_code}${targetContact.phone.phone}`}>{`${targetContact.phone.country_code}${targetContact.phone.phone}`}</a></dd>
+                    {targetContact.phone.number && (
+                        <>
+                            <dt>phone: </dt>
+                            <dd>
+                                <a 
+                                    href={
+                                        `tel:+${targetContact.phone.country_code}${targetContact.phone.number}`}
+                                >
+                                    {`${targetContact.phone.country_code}${targetContact.phone.number}`}
+                                </a>
+                            </dd>
+                        </>
+                    )} 
+                    
                 </div>
                 </dl>
                 <div id="address">
-                    <h4>address:</h4>
-                    <address>{targetContact.address.street}  {targetContact.address.unit} <br />
-                    {targetContact.address.city}, {targetContact.address.state}  {targetContact.address.zip}<br />
-                    {targetContact.address.country}</address>
+                    {Object.values(targetContact).filter(el => el !== "").length > 0 && (
+                        <>
+                            <h4>address:</h4>
+                            <address>
+                                {targetContact.address.street}  {targetContact.address.unit} <br />
+                                {targetContact.address.city}  {targetContact.address.state}  {targetContact.address.zip}<br />
+                                {targetContact.address.country}</address>
+                        </>
+                    )}
+                    
                 </div>
             <div className="details-buttons">
                 <button type="button">
