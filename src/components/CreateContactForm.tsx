@@ -103,8 +103,8 @@ const CreateContactForm = () => {
                 id="email"
                 onChange={(e) => setEmail(e.target.value)}/>
             <label htmlFor="phone-number">Phone Number: </label>
-            <input type="tel" //TODO: fix phone number rendering as undefined
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" //TODO: Show the phone number format in label?
+            <input type="tel"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 placeholder="ex: 444-444-4444" 
                 id="phone-number"
                 value={phoneNumber} 
