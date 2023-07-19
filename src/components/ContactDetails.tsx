@@ -9,7 +9,7 @@ const blankContact = {
     birthday: null,
     email: null,
     phone: {
-        phone: null,
+        number: null,
         country_code: null
     },
     address: {
