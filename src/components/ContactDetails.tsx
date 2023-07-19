@@ -40,6 +40,8 @@ const ContactDetails = () => {
         fetchContacts();
     }, []) 
 
+    console.dir(targetContact)
+
 
     return (
         <>
@@ -48,7 +50,7 @@ const ContactDetails = () => {
                 gender: {targetContact.gender} <br />
                 birthday: {typeof targetContact.birthday === 'number' ? (new Date(targetContact.birthday)).toLocaleDateString() : null}<br />
                 email: <a href="mailto:">{targetContact.email}</a><br />
-                phone: <a href={`tel:+${targetContact.phone.country_code}${targetContact.phone.phone}`}>{`${targetContact.phone.country_code}${targetContact.phone.phone}`}</a><br />
+                phone: <a href={`tel:+${targetContact.phone.country_code}-${targetContact.phone.number}`}>{`+${targetContact.phone.country_code}-${targetContact.phone.number}`}</a><br />
                 address: <br />
                 {targetContact.address.street} <br />
                 {targetContact.address.unit} <br />
