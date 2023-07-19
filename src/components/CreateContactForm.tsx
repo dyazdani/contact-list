@@ -5,7 +5,6 @@ const parsePhoneNumber = (phoneNumberString: string) => {
     return +(phoneNumberString.split('').filter(el => el !== '-').join(''));
 }
 
-//TODO: Don't allow creation of contact without at least one name
 const CreateContactForm = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
