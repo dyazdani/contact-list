@@ -21,7 +21,6 @@ const blankContact = {
         country: null
     }
 }
-//TODO: Figure out why console logs are happening twice
 const ContactDetails = () => {
     const {contactID} = useParams();
     const [targetContact, setTargetContact] = useState(blankContact);
