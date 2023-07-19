@@ -69,13 +69,14 @@ const CreateContactForm = () => {
             <input 
                 type="text" 
                 id="first-name"
+                required={!lastName && true}
                 value={firstName} 
                 onChange={(e) => setFirstName(e.target.value)}
             />
             <label htmlFor="last-name">Last Name: </label>
             <input 
                 type="text"
-                id="last-time" 
+                id="last-time"
                 value={lastName} 
                 onChange={(e) => setLastName(e.target.value)}
             />
