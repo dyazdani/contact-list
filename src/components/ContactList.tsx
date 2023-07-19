@@ -1,5 +1,5 @@
 import { Link, useSearchParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import ContactListItem from "./ContactListItem";
 
 type ContactListItemType = {
@@ -30,7 +30,8 @@ const ContactList = () => {
     
     const query = searchParams.get('query') ?? "";
 
-    const handleClick = () => {
+    const handleSubmit = (e: FormEvent) => {
+        e.preventDefault()
         searchInput && setSearchParams({query: searchInput});
     }
 
@@ -83,7 +84,7 @@ const ContactList = () => {
                     )
                 })}
             </ul>
-            <div>
+            <form onSubmit={(e) => {handleSubmit(e)}}>
                 <label htmlFor="contacts-search">Search UrContacts: </label>
                 <input 
                     type="search" 
@@ -93,8 +94,8 @@ const ContactList = () => {
                     value={searchInput} 
                     onChange={(e) => setSearchInput(e.target.value)}
                 />
-                <button id="search-button" type="button" onClick={handleClick}>Search</button>
-            </div>
+                <button id="search-button">Search</button>
+            </form>
             <div id="button-div">
                 <button type="button"><Link to="/create">Create New Contact</Link></button>
                 <button type="button"><Link to="/contacts">See All Contacts</Link></button>

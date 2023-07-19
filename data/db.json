@@ -131,25 +131,6 @@
         "zip": "79961",
         "country": "United States"
       }
-    },
-    {
-      "name": "4 1",
-      "gender": "",
-      "birthday": "",
-      "email": "",
-      "phone": {
-        "number": 0,
-        "country_code": 0
-      },
-      "address": {
-        "street": "",
-        "unit": "",
-        "city": "",
-        "province": "",
-        "zip": "",
-        "country": ""
-      },
-      "id": "EOx8GC4"
     }
   ],
   "notes": [
