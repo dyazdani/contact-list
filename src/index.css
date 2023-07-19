@@ -103,3 +103,22 @@ h4 {
   margin-top: 15px;
   margin-bottom: 10px;
 }
+
+dl {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+
+dl div {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-inline-start: 10px;
+}
