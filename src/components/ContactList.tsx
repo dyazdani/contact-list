@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, FormEvent } from "react";
 import ContactListItem from "./ContactListItem";
 
@@ -27,6 +27,7 @@ const ContactList = () => {
     const [contacts, setContacts] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
+    const navigate = useNavigate();
     
     const query = searchParams.get('query') ?? "";
 
@@ -97,8 +98,8 @@ const ContactList = () => {
                 <button id="search-button">Search</button>
             </form>
             <div id="button-group">
-                <button type="button"><Link to="/create">Create New Contact</Link></button>
-                <button type="button"><Link to="/contacts">See All Contacts</Link></button>
+                <button type="button" onClick={() => {navigate('/create')}}>Create New Contact</button>
+                <button type="button" onClick={() => {navigate('/contacts')}}>See All Contacts</button>
             </div>
         </>
     ) : (
