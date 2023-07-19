@@ -96,7 +96,7 @@ const ContactList = () => {
                 />
                 <button id="search-button">Search</button>
             </form>
-            <div id="button-div">
+            <div id="button-group">
                 <button type="button"><Link to="/create">Create New Contact</Link></button>
                 <button type="button"><Link to="/contacts">See All Contacts</Link></button>
             </div>

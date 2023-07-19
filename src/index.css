@@ -34,7 +34,7 @@ a:hover {
   margin-left: 15px;
 }
 
-#button-div {
+#button-group {
   display: flex;
   flex-flow: row nowrap;
   gap: 15px;
