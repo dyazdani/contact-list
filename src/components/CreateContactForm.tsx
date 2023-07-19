@@ -128,9 +128,11 @@ const CreateContactForm = () => {
                 value={phoneNumber} 
                 onChange={(e) => setPhoneNumber(e.target.value)}/>
             <label htmlFor="country-code">Country Code: </label>
-            <input //TODO: only allow input that is integer >= 0 and up to 4 digits.
+            <input
                 type="number" 
                 id="country-code"
+                min="1"
+                max="999"
                 value={countryCode} 
                 onChange={(e) => setCountryCode(e.target.value)}/>
             <div id="address">
