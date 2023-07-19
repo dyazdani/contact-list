@@ -7,13 +7,13 @@ UrContacts is a React contact list app built with full CRUD capabilities. It use
 
 1. Clone or download GitHub repo into a desired local root directory.
 
-2. `cd contact-list`
+2. `npm install` in the project directory.
 
-3. `npm install` 
+3. `npm run build`
 
-4. `npm run build`
+4. `npm start`
 
-5. `npm start`
+5. App will be running at port 3000 and can be accessed at http://localhost:3000
 
 
 ## Features
@@ -25,6 +25,10 @@ UrContacts provides functionality for creating, updating, deleting, and searchin
 - TypeScript
 - Vite
 - React Router
+- [json-server][json-server] 
+
+
+## User Experience
     UrContacts uses React Router to route to various URLs in on your browser: 
 
     /                               => Home page
@@ -32,38 +36,32 @@ UrContacts provides functionality for creating, updating, deleting, and searchin
     /contacts/{contactID}           => contact by id
     /create                         => create new contact
     /contacts/{contactID}/update    => update contact
-- [json-server][json-server] 
-
-
-## User Experience
 ### Home Page `/`
 - From the home page, you will be able to see how many contacts are currently in your list.
 - If there are no contacts, you will be prompted to create a new contact. 
-- Click on "Go to UrContacts List" to view your contact list (`/contacts`). 
+- Click on **Go to UrContacts List** to view your contact list (`/contacts`). 
 
 ### Create a New Contact `/create`
-- Click on "Create New Contact" in the lower left corner. 
+- Click on **Create New Contact** in the lower left corner. 
 - A form will then appear to fill and submit.
-- You will then see your new contact appear in your list.
+- Complete and submit the form and your new contact will appear in your list.
 
 ### Contact Details `/contacts/{contactID}`
-- Click contact's name.
-- You will be taken to a page with their contact information.
+- Click a contact's name to view a page with their contact information.
 
 ### Update Contact `/contacts/{contactID}/update`
-- Click on the "Update Contact" link. 
-- The form will reappear with the current information populated in it. 
-- Edit information.
-- Submit form to save.
+- Click on the **Update Contact** link. 
+- This will open the update form. 
+- Edit the desired fields.
+- Click **Submit** to save your changes.
 
 ### Delete Contact
-- Click the "Delete Contact" button on the contact's details page.
+- On the Contact Details page, click **Delete Contact**.
 
 ### Search for Contact
-- Type in the search field at the bottom of the contacts list page. 
-- Clicking "Search" button.
-- Results will appear on the page.
-- To view all contacts, click "See All Contacts". 
+- Type into the **Search UrContacts** field at the bottom of the contacts list page. 
+- Click **Search** button to change the results displayed.
+- Click **See All Contacts** to reset the search and see all contacts.
 
 
 ## Release History
