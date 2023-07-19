@@ -56,8 +56,7 @@ const CreateContactForm = () => {
               country
             }
         };
-        console.log(data)
-        console.log(JSON.stringify(data))
+
         try {
           const response = await fetch("http://localhost:3000/contacts", {
             method: "POST",

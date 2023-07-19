@@ -40,9 +40,6 @@ const ContactDetails = () => {
         fetchContacts();
     }, []) 
 
-    console.dir(targetContact)
-
-
     return (
         <>
             <h1>{targetContact.name}</h1>
