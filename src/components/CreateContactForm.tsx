@@ -107,6 +107,7 @@ const CreateContactForm = () => {
                 <option value="prefer-to-not-say">Prefer to not say</option>
             </select>
             <label htmlFor="birthday">Birthday: </label>
+            <input
                 name="birthday" 
                 type="date" 
                 id="birthday"
