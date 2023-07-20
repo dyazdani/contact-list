@@ -41,13 +41,32 @@ UrContacts provides functionality for creating, updating, deleting, and searchin
 - If there are no contacts, you will be prompted to create a new contact. 
 - Click on **Go to UrContacts List** to view your contact list (`/contacts`). 
 
+![UrContacts home page](./assets/screenshots/home.png)
+![UrContacts contact list](./assets/screenshots/contact-list.png)
+
+### Search for Contact
+- Type into the **Search UrContacts** field at the bottom of the contact list page. 
+- Click **Search** button to change the results displayed.
+- Click **See All Contacts** to reset the search and see all contacts.
+
+![Contact list after search](./assets/screenshots/search.png)
+
 ### Create a New Contact `/create`
-- Click on **Create New Contact** in the lower left corner. 
+- Click on **Create New Contact** in the lower left corner of the contact list page. 
 - A form will then appear to fill and submit.
 - Complete and submit the form and your new contact will appear in your list.
 
+![UrContacts contact list](./assets/screenshots/contact-list.png)
+![Create contact page](./assets/screenshots/create-contact.png)
+
 ### Contact Details `/contacts/{contactID}`
 - Click a contact's name to view a page with their contact information.
+
+![UrContacts contact list](./assets/screenshots/contact-list.png)
+![Contact details page](./assets/screenshots/contact-details.png)
+
+### Delete Contact
+- On the Contact Details page, click **Delete Contact**.
 
 ### Update Contact `/contacts/{contactID}/update`
 - Click on the **Update Contact** link. 
@@ -55,13 +74,7 @@ UrContacts provides functionality for creating, updating, deleting, and searchin
 - Edit the desired fields.
 - Click **Submit** to save your changes.
 
-### Delete Contact
-- On the Contact Details page, click **Delete Contact**.
-
-### Search for Contact
-- Type into the **Search UrContacts** field at the bottom of the contacts list page. 
-- Click **Search** button to change the results displayed.
-- Click **See All Contacts** to reset the search and see all contacts.
+![Update contact page](./assets/screenshots/update-contact.png)
 
 
 ## Release History
