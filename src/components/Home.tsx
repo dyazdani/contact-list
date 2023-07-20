@@ -1,9 +1,10 @@
 import {useEffect, useState} from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
     const [numberOfContacts, setNumberOfContacts] = useState(0);
+    const navigate = useNavigate();
 
     const fetchJsonData = async () => {
         const response = await fetch('http://localhost:3000/contacts');
@@ -19,7 +20,7 @@ const Home = () => {
         <div>
             <h1>Welcome to UrContacts!</h1>
             <h2>Your list has {numberOfContacts} contacts</h2>
-            <Link to="/contacts">Go to UrContacts List</Link>
+            <button type="button" onClick={() => {navigate("/contacts")}}>Go to UrContacts List</button>
         </div>
     )
 

@@ -6,10 +6,10 @@ const blankContact = {
     id: null,
     name: null,
     gender: null,
-    birthday: null,
+    birthday: "",
     email: null,
     phone: {
-        phone: null,
+        number: null,
         country_code: null
     },
     address: {
@@ -21,10 +21,11 @@ const blankContact = {
         country: null
     }
 }
-//TODO: Figure out why console logs are happening twice
+
 const ContactDetails = () => {
     const {contactID} = useParams();
     const [targetContact, setTargetContact] = useState(blankContact);
+   
     
     const fetchContacts = async () => {
         const response = await fetch('http://localhost:3000/contacts');
@@ -41,24 +42,76 @@ const ContactDetails = () => {
         fetchContacts();
     }, []) 
 
-
-    return (
+    return ( //TODO: The logic of this return should work when merged with changes from the create-contact branch
         <>
             <h1>{targetContact.name}</h1>
-            <address>
-                gender: {targetContact.gender} <br />
-                birthday: {typeof targetContact.birthday === 'number' ? (new Date(targetContact.birthday)).toLocaleDateString() : null}<br />
-                email: <a href="mailto:">{targetContact.email}</a><br />
-                phone: <a href={`tel:+${targetContact.phone.country_code}${targetContact.phone.phone}`}>{`${targetContact.phone.country_code}${targetContact.phone.phone}`}</a><br />
-                address: <br />
-                {targetContact.address.street} <br />
-                {targetContact.address.unit} <br />
-                {targetContact.address.city}, {targetContact.address.state} <br />
-                {targetContact.address.zip} <br />
-                {targetContact.address.country}
-            </address> 
-            <Link to={`/contacts/${contactID}/update`} state={contactID}>Update Contact</Link>
-            <DeleteContactButton id={contactID ? contactID : ""}/>
+            <dl>
+                <div>
+                    {targetContact.gender && (
+                        <>
+                            <dt>gender: </dt>
+                            <dd>{targetContact.gender}</dd>
+                        </>
+                    )}
+                </div>
+                <div>
+                    {targetContact.birthday && (
+                        <>
+                            <dt>birthday: </dt>
+                            <dd>
+                                <time 
+                                    dateTime={targetContact.birthday && new Date(targetContact.birthday).toISOString()}
+                                >
+                                    {targetContact.birthday && (new Date(targetContact.birthday)).toLocaleDateString()}
+                                </time>
+                            </dd>
+                        </>
+                    )}
+                </div>
+                <div>
+                    {targetContact.email && (
+                        <>
+                            <dt>email: </dt>
+                            <dd><a href="mailto:">{targetContact.email}</a></dd>
+                        </>
+                    )}
+                    
+                </div>
+                <div>
+                    {targetContact.phone.number && (
+                        <>
+                            <dt>phone: </dt>
+                            <dd>
+                                <a 
+                                    href={
+                                        `tel:+${targetContact.phone.country_code}${targetContact.phone.number}`}
+                                >
+                                    {`${targetContact.phone.country_code}${targetContact.phone.number}`}
+                                </a>
+                            </dd>
+                        </>
+                    )} 
+                    
+                </div>
+                </dl>
+                <div id="address">
+                    {Object.values(targetContact).filter(el => el !== "").length > 0 && (
+                        <>
+                            <h4>address:</h4>
+                            <address>
+                                {targetContact.address.street}  {targetContact.address.unit} <br />
+                                {targetContact.address.city}  {targetContact.address.state}  {targetContact.address.zip}<br />
+                                {targetContact.address.country}</address>
+                        </>
+                    )}
+                    
+                </div>
+            <div className="details-buttons">
+                <button type="button">
+                    <Link to={`/contacts/${contactID}/update`} state={contactID}>Update Contact</Link>
+                </button> 
+                <DeleteContactButton id={contactID ? contactID : ""}/>
+            </div> 
         </>
     )
 

@@ -1,5 +1,5 @@
-import { Link, useSearchParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
+import { useState, useEffect, FormEvent } from "react";
 import ContactListItem from "./ContactListItem";
 
 type ContactListItemType = {
@@ -27,10 +27,12 @@ const ContactList = () => {
     const [contacts, setContacts] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
+    const navigate = useNavigate();
     
     const query = searchParams.get('query') ?? "";
 
-    const handleClick = () => {
+    const handleSubmit = (e: FormEvent) => {
+        e.preventDefault()
         searchInput && setSearchParams({query: searchInput});
     }
 
@@ -70,6 +72,7 @@ const ContactList = () => {
     
     return contacts.length > 0 ? (
         <>
+            <h1>UrContacts</h1>
             <ul>
                 {contactsMatchedToQuery.map((contact: ContactListItemType) => {
                     return (
@@ -82,8 +85,8 @@ const ContactList = () => {
                     )
                 })}
             </ul>
-            <Link to="/create">Create New Contact</Link>
-                <label htmlFor="contacts-search">Search UrContacts:</label>
+            <form onSubmit={(e) => {handleSubmit(e)}}>
+                <label htmlFor="contacts-search">Search UrContacts: </label>
                 <input 
                     type="search" 
                     id="contacts-search" 
@@ -92,8 +95,12 @@ const ContactList = () => {
                     value={searchInput} 
                     onChange={(e) => setSearchInput(e.target.value)}
                 />
-                <button type="button" onClick={handleClick}>Search</button>
-                <Link to="/contacts">See All Contacts</Link>
+                <button id="search-button">Search</button>
+            </form>
+            <div id="button-group">
+                <button type="button" onClick={() => {navigate('/create')}}>Create New Contact</button>
+                <button type="button" onClick={() => {navigate('/contacts')}}>See All Contacts</button>
+            </div>
         </>
     ) : (
             <>
