@@ -131,63 +131,6 @@
         "zip": "79961",
         "country": "United States"
       }
-    },
-    {
-      "name": "Dara Yazdani",
-      "gender": "",
-      "birthday": "",
-      "email": "dara.yazdani@gmail.com",
-      "phone": {
-        "number": 0,
-        "country_code": 0
-      },
-      "address": {
-        "street": "817 Peregrine Ave",
-        "unit": "",
-        "city": "Davis",
-        "province": "California",
-        "zip": "95616",
-        "country": "United States"
-      },
-      "id": "MSODDea"
-    },
-    {
-      "name": "Dara ",
-      "gender": "",
-      "birthday": "",
-      "email": "",
-      "phone": {
-        "number": 0,
-        "country_code": 0
-      },
-      "address": {
-        "street": "",
-        "unit": "",
-        "city": "",
-        "province": "",
-        "zip": "",
-        "country": ""
-      },
-      "id": "tbc6-GT"
-    },
-    {
-      "name": " Dara",
-      "gender": "",
-      "birthday": "",
-      "email": "",
-      "phone": {
-        "number": 0,
-        "country_code": 3
-      },
-      "address": {
-        "street": "",
-        "unit": "",
-        "city": "",
-        "province": "",
-        "zip": "",
-        "country": ""
-      },
-      "id": "70RSPlu"
     }
   ],
   "notes": [
