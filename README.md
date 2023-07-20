@@ -59,7 +59,7 @@ UrContacts provides functionality for creating, updating, deleting, and searchin
 ![UrContacts contact list](./assets/screenshots/contact-list.png)
 ![Create contact page](./assets/screenshots/create-contact.png)
 
-### Contact Details `/contacts/{contactID}`
+### Contact Details `/contacts/:contactID`
 - Click a contact's name to view a page with their contact information.
 
 ![UrContacts contact list](./assets/screenshots/contact-list.png)
@@ -68,7 +68,7 @@ UrContacts provides functionality for creating, updating, deleting, and searchin
 ### Delete Contact
 - On the Contact Details page, click **Delete Contact**.
 
-### Update Contact `/contacts/{contactID}/update`
+### Update Contact `/contacts/:contactID/update`
 - Click on the **Update Contact** link. 
 - This will open the update form. 
 - Edit the desired fields.
